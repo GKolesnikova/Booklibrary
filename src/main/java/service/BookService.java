@@ -14,7 +14,6 @@ public class BookService {
     }
 
     public Book getBookById(String id) {
-
         return books.getBookById(id);
     }
 
