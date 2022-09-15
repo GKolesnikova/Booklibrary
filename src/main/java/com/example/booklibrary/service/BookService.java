@@ -24,6 +24,10 @@ public class BookService {
         return books.getAllBooks();
     }
 
+    public Book postNewBook(Book book) {
+        return books.postNewBook(book);
+    }
+
 }
 
 

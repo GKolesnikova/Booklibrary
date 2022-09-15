@@ -29,7 +29,9 @@ public class BookDB {
     }
 
     public Book postNewBook(Book book){
-        return books.put(book.getId(), book);
+        books.put(book.getId(), book);
+        return book;
     }
+
 
 }

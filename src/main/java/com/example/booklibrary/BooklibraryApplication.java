@@ -1,4 +1,5 @@
 package com.example.booklibrary;
+import com.example.booklibrary.model.Book;
 import com.example.booklibrary.repository.BookDB;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ public class BooklibraryApplication {
 
             System.out.println(bookService.getBookById("2"));
             System.out.println(bookService.getAllBooks());
+            System.out.println(bookService.postNewBook(new Book("Asus", "Bob", "1")));
 
 
 

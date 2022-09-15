@@ -27,6 +27,11 @@ public class BookController  {
         return   bookService.getBookById(id);
     }
 
+    @PostMapping
+    public Book postNewBook(@RequestParam Book q) {
+        return bookService.postNewBook(q);
+    }
+
 
 
 

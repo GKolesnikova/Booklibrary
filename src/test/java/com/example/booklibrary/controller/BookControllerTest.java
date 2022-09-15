@@ -3,11 +3,15 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -65,6 +69,42 @@ class BookControllerTest {
         mockMvc.perform(get("/book/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().json(expectJson));
+
+    }
+
+
+
+    @Test
+    void addNewBook() throws Exception {
+        // GIVEN
+
+        String requestBody = """
+                
+                    {
+                        "title": "Asus",
+                        "author": "Bob",
+                        "id": "5"
+                    }
+                
+                """;
+
+        String expectedResponseBody = """
+                
+                    {
+                        "title": "Asus",
+                        "author": "Bob",
+                        "id": "5"
+                    }
+                
+                """;
+
+        // WHEN & THEN
+
+        mockMvc.perform(post("/book/")
+                .header(HttpHeader.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .content(requestBody)
+                .andExpect(status().isOk())
+                .andExpect(content().json(expectedResponseBody));
 
     }
 
