@@ -2,7 +2,7 @@ package com.example.booklibrary;
 import com.example.booklibrary.repository.BookDB;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import service.BookService;
+import com.example.booklibrary.service.BookService;
 
 @SpringBootApplication
 public class BooklibraryApplication {
